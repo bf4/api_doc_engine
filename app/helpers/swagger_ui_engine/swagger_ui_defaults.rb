@@ -20,8 +20,10 @@ module SwaggerUiEngine
       false
     end
 
+    # displayed when validator_enabled
+    # must be quoted
     def default_validator_url
-      '//online.swagger.io/validator'
+      %('//online.swagger.io/validator')
     end
   end
 end
