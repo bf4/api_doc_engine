@@ -3,7 +3,7 @@ module SwaggerUiEngine
     include SwaggerUiEngine::AuthConfigParser
 
     protect_from_forgery with: :exception
-    layout nil
+    layout 'layouts/swagger'
 
     before_action :authenticate_admin
 
