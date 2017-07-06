@@ -7,7 +7,9 @@ module SwaggerUiEngine
     add_template_helper SwaggerUiEngine::TranslationHelper
     before_action :set_configs, :set_oauth_configs
 
-    def oauth2; end
+    def oauth2
+      render action: :oauth2, layout: nil
+    end
 
     def index
       # backward compatibility for defining single doc url in strings
@@ -18,7 +20,7 @@ module SwaggerUiEngine
     def show
       @single_doc_url = single_doc_url? || single_doc_url_hash?
       @swagger_url = @swagger_url[params[:id].to_sym] unless single_doc_url?
-      render action: :show, layout: nil
+      render action: :show, layout: 'layouts/swagger'
     end
 
     private
