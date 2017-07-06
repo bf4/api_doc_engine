@@ -39,7 +39,7 @@ module SwaggerUiEngine
       assert_response :success
       assert_match('showRequestHeaders: "false"', @response.body)
       assert_match('jsonEditor: "false"', @response.body)
-      assert_match('validatorUrl: "null"', @response.body)
+      assert_match('validatorUrl: null', @response.body)
       assert_match('clientId: "your-client-id"', @response.body)
       assert_match('clientSecret: "your-client-secret-if-required"', @response.body)
       assert_match('scopeSeparator: " "', @response.body)
