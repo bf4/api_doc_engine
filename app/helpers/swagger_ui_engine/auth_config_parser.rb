@@ -1,12 +1,8 @@
 module SwaggerUiEngine
   module AuthConfigParser
-    def admin_username
-      configuration.admin_username
-    end
+    delegate :admin_username, to: :configuration
 
-    def admin_password
-      configuration.admin_password
-    end
+    delegate :admin_password, to: :configuration
 
     def basic_authentication_enabled?
       admin_username && admin_password
