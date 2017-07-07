@@ -2,7 +2,7 @@
 <script>
 window.onload = function() {
   // Build a system
-  const ui = SwaggerUIBundle({
+  const config = {
     url: "http://petstore.swagger.io/v2/swagger.json",
     dom_id: '#swagger-ui',
     presets: [
@@ -13,19 +13,24 @@ window.onload = function() {
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout"
-  })
+  }
 
+  // begin customizations
+  config.url = "<%= @swagger_url %>";
+  config.validatorUrl = <%= @validator_url %>;
+  config.oauth2RedirectUrl = "<%= oauth2_docs_path %>";
+  config.docExpansion = "<%= @doc_expansion %>";
+  // config.jsonEditor = "<%= @json_editor %>"; // not implemented
+  // l10n (translations) is not implemented.
+  // config.defaultModelRendering = "<%= @model_rendering %>";
+  // config.showRequestHeaders = "<%= @request_headers %>";
+  config.displayOperationId = false;
+  // end customizations
+
+  const ui = SwaggerUIBundle(config);
   window.ui = ui
 
-  ui.url = "<%= @swagger_url %>";
-  ui.validatorUrl = <%= @validator_url %>;
-  ui.oauth2RedirectUrl = "<%= oauth2_docs_path %>";
-  ui.docExpansion = "<%= @doc_expansion %>";
-  // ui.jsonEditor = "<%= @json_editor %>"; // not implemented
-  // l10n (translations) is not implemented.
-  // ui.defaultModelRendering = "<%= @model_rendering %>";
-  // ui.showRequestHeaders = "<%= @request_headers %>";
-  // ui.showOperationIds = false;
+  // begin customizations
   ui.initOAuth({
     clientId: "<%= @oauth_client_id %>",
     clientSecret: "<%= @oauth_client_secret %>",
@@ -34,6 +39,7 @@ window.onload = function() {
     scopeSeparator: "<%= @oauth_scope_separator %>",
     additionalQueryStringParams: "<%= @oauth_query_string_params %>"
   });
+  // end customizations
 }
 </script>
 <% end %>
