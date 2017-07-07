@@ -39,15 +39,15 @@ strip_trailing_whitespace() {
 # ├── index.html
 # ├── oauth2-redirect.html
 # ├── swagger-ui-bundle.js
+# ├── swagger-ui-bundle.js.map
 # ├── swagger-ui-standalone-preset.js
+# ├── swagger-ui-standalone-preset.js.map
 # ├── swagger-ui.css
+# ├── swagger-ui.css.map
 # nodejs artifacts
-# ├── swagger-ui.js
 # ├── absolute-path.js
 # ├── index.js
-# ├── swagger-ui-bundle.js.map
-# ├── swagger-ui-standalone-preset.js.map
-# ├── swagger-ui.css.map
+# ├── swagger-ui.js
 # └── swagger-ui.js.map
 
 # html
@@ -56,12 +56,15 @@ cp node_modules/swagger-ui-dist/index.html app/views/layouts/swagger.html.erb
 
 # javascript
 copy_asset /swagger-ui-bundle.js /javascripts/swagger_ui_engine/
+copy_asset /swagger-ui-bundle.js.map /javascripts/swagger_ui_engine/
 copy_asset /swagger-ui-standalone-preset.js /javascripts/swagger_ui_engine/
+copy_asset /swagger-ui-standalone-preset.js.map /javascripts/swagger_ui_engine/
 beautify_js /javascripts/swagger_ui_engine/swagger-ui-bundle.js
 beautify_js /javascripts/swagger_ui_engine/swagger-ui-standalone-preset.js
 
 # stylesheets
 copy_asset /swagger-ui.css /stylesheets/swagger_ui_engine/swagger-ui.css.erb
+copy_asset /swagger-ui.css /stylesheets/swagger_ui_engine/swagger-ui.css.map
 beautify_css /stylesheets/swagger_ui_engine/swagger-ui.css.erb
 
 # images
