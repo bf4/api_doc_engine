@@ -7,7 +7,7 @@ module SwaggerUiEngine
         lib = File.expand_path('..', __FILE__)
         root = File.expand_path File.join(lib, '..', '..')
         file = File.join(root, 'package.json')
-        JSON.parse(File.read(file)).fetch("dependencies").fetch("swagger-ui")
+        JSON.parse(File.read(file)).fetch("dependencies").fetch("swagger-ui-dist")
       end
   end
 end
