@@ -5,7 +5,8 @@ AllCops:
     - !ruby/regexp /(vendor|bundle|bin|db)\/.*/
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.4
+  TargetRailsVersion: 4.2
   # https://github.com/bbatsov/rubocop/blob/master/manual/caching.md
   # https://github.com/bbatsov/rubocop/blob/e8680418b351491e111a18cf5b453fc07a3c5239/config/default.yml#L60-L77
   UseCache: true
@@ -40,36 +41,6 @@ Style/MissingElse:
 Style/EmptyElse:
   EnforcedStyle: empty
 
-Style/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
-  Enabled: true
-
-Style/AlignHash:
-  EnforcedHashRocketStyle: key
-  EnforcedColonStyle: key
-  EnforcedLastArgumentHashStyle: ignore_implicit
-
-Style/IndentHash:
-  EnforcedStyle: consistent
-
-Style/IndentationWidth:
-  Width: 2
-
-Style/MultilineOperationIndentation:
-  EnforcedStyle: indented
-
-Style/ClosingParenthesisIndentation:
-  Enabled: false
-
-Style/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
-Style/FirstParameterIndentation:
-  EnforcedStyle: special_for_inner_method_call_in_parentheses
-
-Style/ExtraSpacing:
-  Enabled: true
-
 Lint/BlockAlignment:
   Enabled: true
   EnforcedStyleAlignWith: either
@@ -77,66 +48,12 @@ Lint/BlockAlignment:
 Lint/EndAlignment:
   Enabled: true
 
-Style/SpaceAfterColon:
-  Enabled: true
-
-Style/SpaceAfterComma:
-  Enabled: true
-
-Style/SpaceAfterNot:
-  Enabled: true
-
-Style/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
-
-Style/SpaceBeforeBlockBraces:
-  Enabled: false
-  # EnforcedStyle: space
-
-Style/SpaceInsideBlockBraces:
-  EnforcedStyle: space
-  EnforcedStyleForEmptyBraces: no_space
-  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
-  SpaceBeforeBlockParameters: true
-
-Style/SpaceInsideBrackets:
-  Enabled: true
-
-Style/SpaceInsideParens:
-  Enabled: true
-
-Style/EmptyLines:
-  Enabled: true
-
-Style/EmptyLinesAroundAccessModifier:
-  Enabled: true
-
-Style/EmptyLinesAroundBlockBody:
-  EnforcedStyle: no_empty_lines
-
-Style/EmptyLinesAroundClassBody:
-  EnforcedStyle: no_empty_lines
-
-Style/EmptyLinesAroundModuleBody:
-  EnforcedStyle: no_empty_lines
-
-Style/EmptyLinesAroundMethodBody:
-  Enabled: true
-
-Style/EmptyLineBetweenDefs:
-  Enabled: true
-
-Style/LeadingCommentSpace:
-  Enabled: true
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: no_comma
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma
-
-Style/TrailingWhitespace:
-  Enabled: true
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -173,8 +90,8 @@ Style/VariableNumber:
 Rails/HttpPositionalArguments:
   Enabled: false
 
-Style/IndentArray:
-  EnforcedStyle: consistent
+Rails/Blank:
+  Enabled: false
 
 Style/NumericLiterals:
   Enabled: false
@@ -182,11 +99,96 @@ Style/NumericLiterals:
 Style/Documentation:
   Enabled: false
 
-Style/SpaceInLambdaLiteral:
-  EnforcedStyle: require_no_space
-
 Style/DoubleNegation:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 100
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_no_space
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+  Enabled: true
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Layout/IndentationWidth:
+  Width: 2
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Layout/FirstParameterIndentation:
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
+
+Layout/ExtraSpacing:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAfterNot:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+  # EnforcedStyle: space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
+  SpaceBeforeBlockParameters: true
+
+Layout/SpaceInsideBrackets:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
