@@ -1,8 +1,8 @@
 <ul>
   <h2> API documentations: </h2>
-  <% @swagger_url.each_key do |k| %>
+  <% @swagger_urls.each_key do |version_key| %>
     <li>
-      <h1> <%= link_to k, doc_path(k) %> </h1>
+      <h1> <%= link_to version_key, doc_path(version_key) %> </h1>
     </li>
   <% end %>
 </ul>

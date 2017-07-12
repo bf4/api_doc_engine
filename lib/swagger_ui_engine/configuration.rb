@@ -1,24 +1,19 @@
 module SwaggerUiEngine
   class Configuration
-    # Configurable options
     OPTIONS = %i(
-      admin_username
-      admin_password
-      doc_expansion
-      json_editor
-      model_rendering
-      oauth_client_id
-      oauth_client_secret
-      oauth_realm
-      oauth_app_name
-      oauth_scope_separator
-      oauth_query_string_params
-      request_headers
-      swagger_url
-      translator_enabled
-      validator_enabled
+      authentication_proc
+      swagger_urls
+      doc_config
     ).freeze
 
     attr_accessor(*OPTIONS)
+
+    def default_swagger_urls
+      { v1: 'http://petstore.swagger.io/v2/swagger.json' }
+    end
+
+    def doc_config
+      @doc_config ||= {}
+    end
   end
 end

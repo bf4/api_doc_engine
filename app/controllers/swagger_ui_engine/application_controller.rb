@@ -1,19 +1,15 @@
 module SwaggerUiEngine
   class ApplicationController < ActionController::Base
-    include SwaggerUiEngine::AuthConfigParser
-
     protect_from_forgery with: :exception
     layout 'layouts/swagger'
 
-    before_action :authenticate_admin
+    if SwaggerUiEngine.configuration.authentication_proc
+      before_action :authenticate_admin
 
-    protected
+      protected
 
-    def authenticate_admin
-      return unless basic_authentication_enabled?
-
-      authenticate_or_request_with_http_basic do |username, password|
-        username == admin_username && password == admin_password
+      def authenticate_admin
+        SwaggerUiEngine.configuration.authentication_proc.call(self)
       end
     end
   end

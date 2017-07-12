@@ -1,54 +1,33 @@
 module SwaggerUiEngine
   class DocsController < ApplicationController
-    include SwaggerUiEngine::ConfigParser
-    include SwaggerUiEngine::OauthConfigParser
-    include SwaggerUiEngine::SwaggerUiDefaults
-
-    add_template_helper SwaggerUiEngine::TranslationHelper
-    before_action :set_configs, :set_oauth_configs
-
-    def oauth2
-      render action: :oauth2, layout: nil
-    end
+    before_action :set_configs
 
     def index
-      # backward compatibility for defining single doc url in strings
-      redirect_to doc_path('v1') if single_doc_url?
-      redirect_to doc_path(@swagger_url.keys.first) if single_doc_url_hash?
+      redirect_to doc_path(@swagger_urls.keys.first) if single_doc_url_hash?
     end
 
     def show
-      @single_doc_url = single_doc_url? || single_doc_url_hash?
-      @swagger_url = @swagger_url[params[:id].to_sym] unless single_doc_url?
+      swagger_url = @swagger_urls[params[:id].to_sym]
+      @swagger_config = engine_config.doc_config.merge(
+        'spec-url': swagger_url,
+      ).map do |attribute, value|
+        "#{attribute}='#{value}'"
+      end.join(' ').html_safe
       render action: :show, layout: 'layouts/swagger'
     end
 
     private
 
     def set_configs
-      @doc_expansion = set_doc_expansion
-      @json_editor = set_json_editor
-      @model_rendering = set_model_rendering
-      @request_headers = set_request_headers
-      @swagger_url = set_swagger_url
-      @validator_url = set_validator_url
-    end
-
-    def set_oauth_configs
-      @oauth_app_name = set_oauth_app_name
-      @oauth_client_id = set_oauth_client_id
-      @oauth_client_secret = set_oauth_client_secret
-      @oauth_realm = set_oauth_realm
-      @oauth_query_string_params = set_oauth_query_string_params
-      @oauth_scope_separator = set_oauth_scope_separator
-    end
-
-    def single_doc_url?
-      @swagger_url.is_a?(String)
+      @swagger_urls = engine_config.swagger_urls || engine_config.default_swagger_urls
     end
 
     def single_doc_url_hash?
-      @swagger_url.is_a?(Hash) && @swagger_url.size == 1
+      @swagger_urls.size == 1
+    end
+
+    def engine_config
+      @engine_config ||= SwaggerUiEngine.configuration
     end
   end
 end
