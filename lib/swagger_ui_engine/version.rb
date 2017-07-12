@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SwaggerUiEngine
-  VERSION = '1.0.2' unless const_defined?(:VERSION)
+  VERSION = '2.0.0' unless const_defined?(:VERSION)
   def self.version
     VERSION
   end
