@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SwaggerUiEngine
   class DocsController < ApplicationController
     before_action :set_configs
@@ -9,17 +11,18 @@ module SwaggerUiEngine
     def show
       swagger_url = @swagger_urls[params[:id].to_sym]
       @swagger_config = engine_config.doc_config.merge(
-        'spec-url': swagger_url,
+        'spec-url': swagger_url
       ).map do |attribute, value|
         "#{attribute}='#{value}'"
-      end.join(' ').html_safe
+      end.join(' ').html_safe # rubocop:disable Rails/OutputSafety
       render action: :show, layout: 'layouts/swagger'
     end
 
     private
 
     def set_configs
-      @swagger_urls = engine_config.swagger_urls || engine_config.default_swagger_urls
+      @swagger_urls =
+        engine_config.swagger_urls || engine_config.default_swagger_urls
     end
 
     def single_doc_url_hash?

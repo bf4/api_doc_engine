@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SwaggerUiEngine
   class Configuration
     OPTIONS = %i(
@@ -9,7 +11,7 @@ module SwaggerUiEngine
     attr_accessor(*OPTIONS)
 
     def default_swagger_urls
-      { v1: 'http://petstore.swagger.io/v2/swagger.json' }
+      {v1: 'http://petstore.swagger.io/v2/swagger.json'}
     end
 
     def doc_config

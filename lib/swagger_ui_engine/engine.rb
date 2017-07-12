@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SwaggerUiEngine
   class Engine < ::Rails::Engine
     isolate_namespace SwaggerUiEngine
