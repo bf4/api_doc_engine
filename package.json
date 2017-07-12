@@ -4,6 +4,6 @@
   "repository": "git@github.com:swipesense/swagger_ui_engine.git",
   "license": "",
   "dependencies": {
-    "swagger-ui-dist": "3.0.17"
+    "redoc": "1.16.1"
   }
 }
