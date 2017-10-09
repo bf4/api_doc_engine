@@ -2,6 +2,8 @@
 
 ## master
 
+## 1.0.1
+
 - Remove undesired path: e.g. api_docs/docs/v1 is now api_docs/v1
 - Fix authentication_proc intended usage to use instance_exec
 
