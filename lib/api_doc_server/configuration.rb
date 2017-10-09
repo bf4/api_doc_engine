@@ -14,6 +14,7 @@ module ApiDocServer
       {v1: 'http://petstore.swagger.io/v2/swagger.json'}
     end
 
+    remove_method :doc_config
     def doc_config
       @doc_config ||= {}
     end
