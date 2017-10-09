@@ -19,7 +19,7 @@ module ApiDocServer
     end
 
     test 'default config options should work successfully' do
-      get '/swagger/docs/v1'
+      get '/swagger/v1'
       assert_response :success
       assert_match("url='api_docs/v1/swagger.yaml'", @response.body)
     end
