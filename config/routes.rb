@@ -2,12 +2,7 @@
 
 ApiDocServer::Engine.routes.draw do
   scope format: false do
-    resources :docs, path: '/', only: %i(index show) do
-      collection do
-        get 'oauth2', to: 'docs#oauth2', format: false
-      end
-    end
-
+    resources :docs, path: '/', only: %i(index show)
     root to: 'docs#index'
   end
 end
