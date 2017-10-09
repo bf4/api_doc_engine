@@ -1,7 +1,7 @@
 {
   "name": "api_doc_server",
   "private": true,
-  "repository": "git@github.com:swipesense/api_doc_server.git",
+  "repository": "git@github.com:bf4/api_doc_server.git",
   "license": "",
   "dependencies": {
     "redoc": "1.16.1"

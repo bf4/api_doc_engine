@@ -5,22 +5,21 @@ require 'api_doc_server/version'
 Gem::Specification.new do |s|
   s.name        = 'api_doc_server'
   s.version     = ApiDocServer::VERSION
-  s.authors     = ['ZuzannaSt', 'github@benjaminfleischer.com']
-  s.email       = ['zuzannast@gmail.com']
-  s.homepage    = 'https://github.com/swipesense/api_doc_server'
-  s.summary     = 'Mountable Rails engine that serves Swagger UI for your API documentation written in YAML files.'
-  s.description = 'Mount Swagger UI web console as Rails engine, configure it as you want and write your API documentation in simple YAML files.'
+  s.authors     = ['Benjamin Fleischer']
+  s.email       = ['github@benjaminfleischer.com']
+  s.homepage    = 'https://github.com/bf4/api_doc_server'
+  s.summary     = 'Mountable Rails engine that serves API Docs for your Swagger/OpenAPI docs.'
+  s.description = s.summary
   s.license     = 'MIT'
 
-  s.files = Dir[
-    '{app,config,db,lib}/**/*',
-    'MIT-LICENSE',
-    'Rakefile',
-    'README.rdoc',
-    'CHANGELOG.md'
-  ]
+  s.files         = `git ls-files -z`.split("\x0")
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
+  s.executables   = []
 
-  s.add_runtime_dependency 'rails', ['>= 4.2', '<= 5.2.0']
+  s.required_ruby_version = '>= 2.1'
+
+  s.add_runtime_dependency 'rails', ['>= 4.2', '< 6']
 
   s.add_development_dependency 'rubocop'
 end
