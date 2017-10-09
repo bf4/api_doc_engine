@@ -1,4 +1,4 @@
-# SwaggerUiEngine Changelog
+# ApiDocServer Changelog
 
 ## master
 

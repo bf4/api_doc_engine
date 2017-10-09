@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module SwaggerUiEngine
+module ApiDocServer
   class DocsControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 

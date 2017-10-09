@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SwaggerUiEngine
+module ApiDocServer
   class Configuration
     OPTIONS = %i(
       authentication_proc

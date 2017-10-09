@@ -1,4 +1,4 @@
-# SwaggerUiEngine
+# ApiDocServer
 
 Include [redoc](https://github.com/Rebilly/ReDoc) as Rails engine and document your API with simple YAML files. Supports API documentation versioning.
 
@@ -7,7 +7,7 @@ Include [redoc](https://github.com/Rebilly/ReDoc) as Rails engine and document y
 Add to Gemfile
 
 ```
-gem 'swagger_ui_engine'
+gem 'api_doc_server'
 ```
 
 And then run:
@@ -23,7 +23,7 @@ $ bundle
 Add to your `config/routes.rb`
 
 ```
-mount SwaggerUiEngine::Engine, at: "/api_docs"
+mount ApiDocServer::Engine, at: "/api_docs"
 ```
 
 You can place this route under `admin_constraint` or other restricted path, or configure basic HTTP authentication.
@@ -32,7 +32,7 @@ You can place this route under `admin_constraint` or other restricted path, or c
 
 ```
 authenticate :user, lambda { |u| u.admin? } do
-  mount SwaggerUiEngine::Engine, at: "/api_docs"
+  mount ApiDocServer::Engine, at: "/api_docs"
 end
 ```
 
@@ -41,9 +41,9 @@ end
 Set admin username and password in an initializer:
 
 ```
-# config/initializers/swagger_ui_engine.rb
+# config/initializers/api_doc_server.rb
 
-SwaggerUiEngine.configure do |config|
+ApiDocServer.configure do |config|
   config.authentication_proc = proc do |controller|
     authenticate_or_request_with_http_basic do |username, password|
       User.find_by(name: username, password: password)
@@ -59,9 +59,9 @@ end
 Set the path of your json/yaml versioned documentations in an initializer:
 
 ```
-# config/initializers/swagger_ui_engine.rb
+# config/initializers/api_doc_server.rb
 
-SwaggerUiEngine.configure do |config|
+ApiDocServer.configure do |config|
   config.swagger_urls = {
     v1: 'api/v1/swagger.yaml',
     v2: 'api/v2/swagger.yaml',
@@ -75,9 +75,9 @@ and place your main documentation file under `/public/api` path.
 
 
 ```
-# config/initializers/swagger_ui_engine.rb
+# config/initializers/api_doc_server.rb
 
-SwaggerUiEngine.configure do |config|
+ApiDocServer.configure do |config|
   config.swagger_urls = { v1: 'api/v1/swagger.yaml' }
 end
 ```

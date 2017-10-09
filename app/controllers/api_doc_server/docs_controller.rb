@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SwaggerUiEngine
+module ApiDocServer
   class DocsController < ApplicationController
     before_action :set_configs
 
@@ -30,7 +30,7 @@ module SwaggerUiEngine
     end
 
     def engine_config
-      @engine_config ||= SwaggerUiEngine.configuration
+      @engine_config ||= ApiDocServer.configuration
     end
   end
 end

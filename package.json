@@ -1,7 +1,7 @@
 {
-  "name": "swagger_ui_engine",
+  "name": "api_doc_server",
   "private": true,
-  "repository": "git@github.com:swipesense/swagger_ui_engine.git",
+  "repository": "git@github.com:swipesense/api_doc_server.git",
   "license": "",
   "dependencies": {
     "redoc": "1.16.1"

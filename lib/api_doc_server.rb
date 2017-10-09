@@ -2,11 +2,11 @@
 
 require 'rails/engine'
 require 'action_controller/railtie'
-require 'swagger_ui_engine/engine'
-require 'swagger_ui_engine/version'
-require 'swagger_ui_engine/configuration'
+require 'api_doc_server/engine'
+require 'api_doc_server/version'
+require 'api_doc_server/configuration'
 
-module SwaggerUiEngine
+module ApiDocServer
   class << self
     delegate(*Configuration::OPTIONS, to: :configuration)
 

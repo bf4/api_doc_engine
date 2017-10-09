@@ -11,7 +11,7 @@ require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
-require 'swagger_ui_engine'
+require 'api_doc_server'
 
 module Dummy
   class Application < Rails::Application

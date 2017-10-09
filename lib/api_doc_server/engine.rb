@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-module SwaggerUiEngine
+module ApiDocServer
   class Engine < ::Rails::Engine
-    isolate_namespace SwaggerUiEngine
+    isolate_namespace ApiDocServer
 
     config.to_prepare do
       Rails.application.config.assets.precompile += %w(
-        swagger_ui_engine/redoc.js
-        swagger_ui_engine/redoc.map
+        api_doc_server/redoc.js
+        api_doc_server/redoc.map
       )
     end
   end
