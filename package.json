@@ -4,6 +4,6 @@
   "repository": "git@github.com:bf4/api_doc_server.git",
   "license": "",
   "dependencies": {
-    "redoc": "1.16.1"
+    "redoc": "v1.19.1"
   }
 }
