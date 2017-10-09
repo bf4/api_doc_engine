@@ -44,8 +44,8 @@ Set admin username and password in an initializer:
 # config/initializers/api_doc_server.rb
 
 ApiDocServer.configure do |config|
-  config.authentication_proc = proc do |controller|
-    controller.authenticate_or_request_with_http_basic do |username, password|
+  config.authentication_proc = proc
+    authenticate_or_request_with_http_basic do |username, password|
       User.find_by(name: username, password: password)
     end
   end
