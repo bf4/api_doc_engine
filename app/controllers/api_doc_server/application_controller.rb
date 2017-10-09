@@ -11,7 +11,7 @@ module ApiDocServer
       protected
 
       def authenticate_admin
-        instance_exec &ApiDocServer.configuration.authentication_proc
+        instance_exec(&ApiDocServer.configuration.authentication_proc)
       end
     end
   end
