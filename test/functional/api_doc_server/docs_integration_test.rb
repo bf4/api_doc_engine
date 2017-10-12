@@ -1,8 +1,7 @@
 require 'test_helper'
 
 module ApiDocServer
-  class DocsControllerTest < ActionDispatch::IntegrationTest
-    include Engine.routes.url_helpers
+  class DocsIntegrationTest < ActionDispatch::IntegrationTest
 
     setup do
       @routes = Engine.routes
